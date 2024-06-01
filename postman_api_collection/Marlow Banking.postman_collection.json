@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "7226484a-3361-4404-9ed3-bf8fa9b11892",
+		"name": "Marlow Banking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29546938"
+	},
+	"item": [
+		{
+			"name": "Withdraw",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8070/marlow-bank/v1/bank-account/1/withdraw?amount=50",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"marlow-bank",
+						"v1",
+						"bank-account",
+						"1",
+						"withdraw"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "50"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8070/marlow-bank/v1/bank-account/1/deposit?amount=50",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"marlow-bank",
+						"v1",
+						"bank-account",
+						"1",
+						"deposit"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "50"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

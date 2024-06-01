@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "Marlow Banking",
+      "Group": "Servers",
+      "Port": 5432,
+      "Username": "nicholaselp",
+      "Host": "postgres_container",
+      "SSLMode": "prefer",
+      "MaintenanceDB": "marlow-banking",
+      "PassFile": "/tmp/pgpassfile"
+    }
+  }
+}
