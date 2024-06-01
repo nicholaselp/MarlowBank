@@ -1,6 +1,7 @@
 package com.elpidoroun.MarlowBank.exception;
 
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.ConstraintViolationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -25,4 +26,12 @@ public class CustomExceptionHandling {
 
         return ResponseEntity.badRequest().body(entityNotFoundException.getMessage());
     }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<Object> handleException(ConstraintViolationException entityNotFoundException){
+        logger.error("Exception occurred: " + entityNotFoundException);
+
+        return ResponseEntity.badRequest().body(entityNotFoundException.getMessage());
+    }
+
 }

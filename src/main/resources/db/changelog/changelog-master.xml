@@ -42,9 +42,12 @@
     <changeSet id="3" author="elpidoroun">
         <sql>
             INSERT INTO account (id, balance) VALUES (1, 0);
+            INSERT INTO account (id, balance) VALUES (2, 0);
         </sql>
         <sql>
-            INSERT INTO account (id, balance) VALUES (2, 0);
+            ALTER TABLE account ADD CONSTRAINT account_negative_balance_constr CHECK (balance >= 0);
+            ALTER TABLE transaction ADD CONSTRAINT transaction_negative_amount_constr CHECK (amount >= 0);
+            ALTER TABLE transaction ADD CONSTRAINT transaction_negative_balanceAfterTransaction_constr CHECK (balance_after_transaction >= 0);
         </sql>
     </changeSet>
 </databaseChangeLog>

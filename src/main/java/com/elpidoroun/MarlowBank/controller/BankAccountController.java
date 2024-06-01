@@ -3,6 +3,7 @@ package com.elpidoroun.MarlowBank.controller;
 import com.elpidoroun.MarlowBank.model.Account;
 import com.elpidoroun.MarlowBank.service.DepositService;
 import com.elpidoroun.MarlowBank.service.WithdrawalService;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.http.ResponseEntity;
@@ -25,12 +26,12 @@ public class BankAccountController {
     @NonNull private final WithdrawalService withdrawalService;
 
     @PostMapping("/{accountId}/deposit")
-    public ResponseEntity<Account> depositFunds(@PathVariable Long accountId, @RequestParam BigDecimal amount){
+    public ResponseEntity<Account> depositFunds(@PathVariable Long accountId, @RequestParam @Positive BigDecimal amount){
          return ResponseEntity.ok(depositService.execute(accountId, amount));
     }
 
     @PostMapping("/{accountId}/withdraw")
-    public ResponseEntity<Account> withdrawFunds(@PathVariable Long accountId, @RequestParam BigDecimal amount){
+    public ResponseEntity<Account> withdrawFunds(@PathVariable Long accountId, @RequestParam @Positive BigDecimal amount){
         return ResponseEntity.ok(withdrawalService.execute(accountId, amount));
     }
 }
